@@ -107,6 +107,8 @@ class Directorio
         if (is_dir("$ruta/$directorio")) {
             $ficheros = scandir("$ruta/$directorio");
             $this->quita_puntos($ficheros);
+            if (count($ficheros)==0)
+                $ficheros =false;
         }
         return $ficheros;
     }

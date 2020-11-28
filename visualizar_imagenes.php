@@ -1,5 +1,4 @@
 <?php
-var_dump($_GET);
 require "class/Directorio.php";
 //Inicializamos varialbes
 $idiomas = new Directorio();
@@ -13,7 +12,7 @@ if ($imagenes ===false) {
 }
 
 
-$listado="null";
+$listado="";
 foreach ($imagenes as $imagen) {
     $listado.="<img src ='./idiomas/$idioma/$imagen'/>";
     $pos = strpos($imagen, ".");
@@ -29,9 +28,20 @@ foreach ($imagenes as $imagen) {
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="estilo/estilo.css">
+    <title>Listado de imágenes</title>
 </head>
 <body>
+<fieldset>
+    <form action="index.php">
+        <input type="submit" value="Volver al index">
+    </form>
+    
+</fieldset>
+<fieldset>
+<h1>Listado de imágenes de <?=$idioma?></h1>
 <?=$listado?>
+</fieldset>
+
 </body>
 </html>
